@@ -158,13 +158,5 @@
 
   };
   
-  #home-manager.users.marco = {
-  #  programs.git = {
-  #    enable = true;
-  #    userName = "p-marco";
-  #    userEmail = "marco.petolicchio@gmail.com";
-  #  };
-  #};
-
 
 }
