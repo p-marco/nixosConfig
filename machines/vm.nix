@@ -28,7 +28,7 @@
   ];
 
   # Networking.
-  networking.hostName = "nixos-marco-vm"; # Define your hostname.
+  networking.hostName = "nixos-marco-vm"; 
 
 }
 

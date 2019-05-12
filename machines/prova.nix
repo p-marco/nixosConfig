@@ -22,7 +22,8 @@
   boot.initrd.luks.devices = [
     {
       name = "root";
-      device = "/dev/sda2";
+      # device = "/dev/sda2";
+      device = "/dev/sda3";
       preLVM = true;  
     }
   ];
@@ -35,7 +36,7 @@
 
   networking.firewall.enable = false;
 
-    networking.hostName = "nixos-marco-prova"; 
+  networking.hostName = "nixos-marco-prova"; 
 
   # Enable Docker
   virtualisation.docker.enable = true;
