@@ -33,7 +33,7 @@ Move `hardware-configuration.nix` into the nixos folder.
 Target the relevant profile in `./machines` and select it by symlinking to `nixos/configuration.nix` (e.g. here the machine is "vm"):
 
     # unlink /etc/nixos/configuration.nix
-    # ln -s /etc/nixos/machines/vm/config.nix /etc/nixos/configuration.nix
+    # ln -s /etc/nixos/machines/vm.nix /etc/nixos/configuration.nix
 
 Then the installation can be now started via:
     
@@ -66,7 +66,7 @@ And then is possible to reboot the system and it will be fully functional.
         swap                        swap
         home    /home               ext4
 
-Sda3/2 are Luks on LVM (I am copying from the useful post at https://qfpl.io/posts/installing-nixos/).
+Sda3 is an encrypted LVM (I am copying from the useful post at https://qfpl.io/posts/installing-nixos/).
 
 ### Gdisk
 
@@ -128,7 +128,7 @@ Make sure about the device via `lsblk`.Then run (`/dev/sda` needs to be edit acc
     # lvcreate -L 16G -n swap lvm-vg
     # lvcreate -l 100%FREE -n home lvm-vg
 
-### Create our filesystems
+### Create filesystems
 
 I am going to use `ext4` for the most:
 
@@ -165,4 +165,4 @@ FOR BIOS:
 
     # mount /dev/sda2 /mnt/boot
 
-Now you can follow the installation procedure
+Now is possible to follow the installation procedure.
