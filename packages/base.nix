@@ -1,0 +1,14 @@
+ark
+clipmenu
+chromium
+docker
+firefox
+git
+go
+htop
+lm_sensors
+neofetch
+pcmanfm
+python3
+vivaldi
+wget
