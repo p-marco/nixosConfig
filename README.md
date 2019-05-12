@@ -15,9 +15,9 @@ Then, make a configuration:
 
     # nixos-generate-config --root /mnt
 
-Now, the directory `/etc/nixos` is created in the host system. Copy the file `/etc/nixos/hardware-configuration.nix` in a different place and remove the generated directory:
+Now, the directory `/etc/nixos` is created in the host system. Copy the file `/etc/nixos/hardware-configuration.nix` in a different place and remove the generated directory. **Remember** that in this stage we need to address the host path prepending `/mnt`: 
 
-    # cp /etc/nixos/hardware-configuration.nix ~./
+    # cp /mnt/etc/nixos/hardware-configuration.nix ~./
     # rm -f /etc/nixos
 
 Install git:
@@ -26,14 +26,14 @@ Install git:
 
 and clone the repository in the folder:
 
-    # git clone https://github.com/p-marco/nixosConfig /etc/nixos
+    # git clone https://github.com/p-marco/nixosConfig /mnt/etc/nixos
 
 Move `hardware-configuration.nix` into the nixos folder.
 
 Target the relevant profile in `./machines` and select it by symlinking to `nixos/configuration.nix` (e.g. here the machine is "vm"):
 
-    # unlink /etc/nixos/configuration.nix
-    # ln -s /etc/nixos/machines/vm.nix /etc/nixos/configuration.nix
+    # unlink /mnt/etc/nixos/configuration.nix
+    # ln -s /mnt/etc/nixos/machines/vm.nix /mnt/etc/nixos/configuration.nix
 
 Then the installation can be now started via:
     
