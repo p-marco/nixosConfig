@@ -6,15 +6,12 @@
         ark
         clipmenu
         chromium
-        docker
         firefox
         git
         go
         htop
         lm_sensors
-        lxappearance
         neofetch
-        pcmanfm
         python3
         vivaldi
         wget
