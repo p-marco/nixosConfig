@@ -26,8 +26,8 @@
                 pcmanfm
                 polybar
                 rofi
-                (python3Packages.py3status.overrideAttrs (oldAttrs: { propagatedBuildInputs = [ python3Packages.pytz python3Packages.tzlocal ];
                 zathura
+                (python3Packages.py3status.overrideAttrs (oldAttrs: { propagatedBuildInputs = [ python3Packages.pytz python3Packages.tzlocal ];
                 }))
             ];
         };
