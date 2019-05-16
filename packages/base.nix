@@ -12,6 +12,7 @@
         go
         htop
         lm_sensors
+        lxappearance
         neofetch
         pcmanfm
         python3

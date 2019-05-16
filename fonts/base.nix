@@ -21,5 +21,13 @@
             ttf_bitstream_vera
             ubuntu_font_family
         ];
+        fontconfig = {
+            penultimate.enable = false;
+            defaultFonts = {
+                monospace = [ "Source Code Pro" ];
+                sansSerif = [ "Quicksand Medium" ];
+                serif     = [ "Source Serif Pro" ];
+            };
+        };
     };
 }

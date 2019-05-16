@@ -3,7 +3,7 @@
 {
   imports =
     [   # Include the results of the hardware scan.
-        ../hardware-configuration.nix
+        /etc/nixos/hardware-configuration.nix
         # Include base config
         ../configs/base.nix 
         # Include base packages for root
@@ -14,8 +14,11 @@
         ../users/base.nix
         # Include GRUB Boot
         ../boot/grub.nix
-        # Include I3
+        # Include Desktop
         ../desktops/i3.nix
+        ../desktops/compton.nix
+        # Include Kernel
+        ../kernels/linux-hardened.nix
     ];
 
   # Boot.
