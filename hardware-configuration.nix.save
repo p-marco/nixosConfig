@@ -24,7 +24,10 @@
     { device = "/dev/disk/by-uuid/d60bc93c-0998-4fdf-bc71-3b78575be408";
       fsType = "ext4";
     };
-
+  fileSystems."/home/guest" =
+    { device = "/dev/disk/by-uuid/d60bc93c-0998-4fdf-bc71-3b78575be408";
+      fsType = "tmpfs";
+    };
   swapDevices =
     [ { device = "/dev/disk/by-uuid/5a136c45-063d-4d35-b212-718ac10079ae"; }
     ];

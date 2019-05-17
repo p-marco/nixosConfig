@@ -37,8 +37,8 @@
     services.xserver.windowManager.i3.package = pkgs.i3-gaps; 
     services.xserver.windowManager.default = "i3";
     services.xserver.displayManager.lightdm.enable = true;
-    services.xserver.displayManager.lightdm.autoLogin.enable = true;
-    services.xserver.displayManager.lightdm.autoLogin.user = "marco";
+    # services.xserver.displayManager.lightdm.autoLogin.enable = true;
+    # services.xserver.displayManager.lightdm.autoLogin.user = "marco";
 
 
 

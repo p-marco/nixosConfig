@@ -12,7 +12,8 @@
         ../fonts/base.nix
         # Include users
         ../users/base.nix
-        # Include GRUB Boot
+        ../users/guest.nix
+        # Include Bootloader
         ../boot/grub.nix
         # Include Desktop
         ../desktops/i3.nix
