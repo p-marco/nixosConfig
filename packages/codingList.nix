@@ -4,7 +4,7 @@
 with pkgs;
 let
   R-with-my-packages = rWrapper.override{ packages = with rPackages; [ 
-    bookdown
+    bsookdown
     data.table
     devtools
     dplyr
