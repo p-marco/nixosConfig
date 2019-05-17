@@ -14,7 +14,7 @@
 
     # Services.
     services.fstrim.enable = true;
-    services.xserver.layout = "it";
+    services.xserver.layout = "it,us,cz,sk";
     
     # Enable sound.
     sound.enable = true;
@@ -25,5 +25,6 @@
     
     # Timezone.
     time.timeZone = "Europe/Prague";
+
     
 }
