@@ -16,6 +16,7 @@
             enable = true;
             extraPackages = with pkgs; [
                 arc-theme
+                betterlockscreen
                 dmenu #application launcher most people use
                 dunst
                 feh
