@@ -6,7 +6,7 @@
         /etc/nixos/hardware-configuration.nix
         # Include base config
         ../configs/base.nix 
-        # Include packages for root
+        # Include base packages for root
         ../packages/base.nix
         ../packages/codingList.nix
         # Include fonts
@@ -33,8 +33,10 @@
   ];
 
   # Networking.
-  networking.hostName = "easynote"; 
-  networking.wireless.enable = true;
+  networking.hostName = "nixos-marco-vm"; 
+
+
+
 
 }
 
