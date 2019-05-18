@@ -3,7 +3,7 @@
 {
   imports =
     [   # Include the results of the hardware scan.
-        /etc/nixos/hardware-configuration.nix
+        ../hardware-configuration.nix
         # Include base config
         ../configs/base.nix 
         # Include packages for root
