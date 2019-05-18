@@ -12,6 +12,7 @@
             conky
             gimp
             home-manager
+            imagemagick
             inkscape
             libreoffice
             mupdf
