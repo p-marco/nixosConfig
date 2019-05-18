@@ -35,9 +35,6 @@
   # Networking.
   networking.hostName = "nixos-marco-vm"; 
 
-
-
-
 }
 
 

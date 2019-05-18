@@ -1,50 +1,30 @@
 { config, pkgs, ... }:
+{
+    packageOverrides = super: let self = super.pkgs; in
+    {
 
-
-with pkgs;
-let
-  R-with-my-packages = rWrapper.override{ packages = with rPackages; [ 
-    bsookdown
-    data.table
-    devtools
-    dplyr
-    ggplot2 
-    grid
-    gtable
-    htmltools
-    jsonlite
-    kableExtra
-    KernSmooth
-    Knitr
-    labeling
-    lazyeval
-    magrittr
-    markdown
-    openssl
-    parallel
-    Rcpp
-    reshape2
-    revealjs
-    rmarkdown
-    tidyr
-    tidyselect
-    tinytex
-    udpipe
-    utf8
-    utils
-    xml2
-    xopen
-    yaml
-  ]; 
-};
-in 
-
+        rEnv = super.rWrapper.override {
+            packages = with self.rPackages; [
+                bookdown
+                devtools
+                ggplot2
+                knitr
+                reshape2
+                yaml
+                optparse
+                udpipe
+                yaml
+                ];
+        };
+    };
+}
 
 {
 
     environment.systemPackages = with pkgs; [
+        # texlive.combined.scheme-basic
         texlive.combined.scheme-full
-        R-with-my-packages
+        rEnv
     ];
 }
 

@@ -8,7 +8,6 @@
         ../configs/base.nix 
         # Include packages for root
         ../packages/base.nix
-        ../packages/codingList.nix
         # Include fonts
         ../fonts/base.nix
         # Include users
