@@ -5,7 +5,7 @@
     # User section.
     users.users.marco = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+        extraGroups = [ "wheel" "docker" "video" ]; # Enable ‘sudo’ for the user.
         home = "/home/marco";
         packages = with pkgs; [
             calibre

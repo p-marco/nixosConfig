@@ -35,6 +35,7 @@
   networking.hostName = "easynote"; 
   networking.wireless.enable = true;
   services.xserver.synaptics.enable = true;
+  programs.light.enable = true;
 }
 
 

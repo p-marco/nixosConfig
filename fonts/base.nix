@@ -15,6 +15,7 @@
             google-fonts
             inconsolata
             liberation_ttf
+            material-icons
             powerline-fonts
             source-code-pro
             terminus_font
