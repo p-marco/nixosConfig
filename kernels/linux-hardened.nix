@@ -3,7 +3,7 @@
 { 
     # Kernel 
     boot.kernelPackages = pkgs.linuxPackages_hardened;
-    # boot.supportedFilesystems = [ "ntfs" "fuse" ];
+    boot.supportedFilesystems = [ "ntfs" "fuse" ];
 
     security.hideProcessInformation = true;
     security.lockKernelModules = true;
