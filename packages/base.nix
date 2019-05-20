@@ -12,10 +12,13 @@
         git
         go
         htop
+        inxi
         libreoffice
         lm_sensors
         neofetch
+        ntfs3g
         python3
+        smartmontools
         vivaldi
         wget
     ];
