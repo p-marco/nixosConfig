@@ -12,7 +12,7 @@
         ../fonts/base.nix
         # Include users
         ../users/base.nix
-        ../users/guest.nix
+        # ../users/guest.nix
         # Include Bootloader
         ../boot/grub.nix
         # Include Desktop

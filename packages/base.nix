@@ -29,6 +29,10 @@
             polybar = pkgs.polybar.override {
                 i3Support = true;
             };
+            libreoffice = pkgs.libreoffice.overrideDerivation (old: {
+                NIX_CFLAGS_COMPILE = "-march=native -O2";
+            });
         };
     };
 }
+

@@ -23,6 +23,7 @@
     ];
 
   # Boot.
+  boot.tmpOnTmpfs = true;
   boot.initrd.luks.devices = [
     {
       name = "root";
@@ -36,6 +37,8 @@
   networking.wireless.enable = true;
   services.xserver.synaptics.enable = true;
   programs.light.enable = true;
+
+  
 }
 
 

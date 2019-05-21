@@ -9,7 +9,7 @@
     };
 
     # Boot.
-    boot.tmpOnTmpfs = true;
+    
     networking.dhcpcd.extraConfig = "noarp";
 
     # Services.

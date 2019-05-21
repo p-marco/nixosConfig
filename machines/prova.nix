@@ -19,6 +19,7 @@
     ];
 
   # Boot.
+  boot.tmpOnTmpfs = true;
   boot.initrd.luks.devices = [
     {
       name = "root";
