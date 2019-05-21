@@ -38,7 +38,7 @@
   programs.light.enable = true;
 
   nixpkgs.config.allowUnsupportedSystem = true;
-  stdenv.userHook = '' NIX_CFLAGS_COMPILE+=" -march=native -O2" '';
+  nixpkgs.config.stdenv.userHook = '' NIX_CFLAGS_COMPILE+=" -march=native -O2" '';
 }
 
 
