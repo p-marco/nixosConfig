@@ -9,12 +9,22 @@
     };
 
     # Boot.
+    boot.initrd.luks.devices = [
+      {
+        name = "root";
+        device = "/dev/sda3";
+        preLVM = true;
+      }
+    ];
     
+    # Networking.
     networking.dhcpcd.extraConfig = "noarp";
+    networking.wireless.enable = true;
 
     # Services.
     services.fstrim.enable = true;
     services.xserver.layout = "it,us,cz,sk";
+    services.xserver.synaptics.enable = true;
     
     # Enable sound.
     sound.enable = true;

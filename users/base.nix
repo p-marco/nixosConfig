@@ -5,23 +5,13 @@
     # User section.
     users.users.marco = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "docker" "video" ]; # Enable ‘sudo’ for the user.
+        extraGroups = [ "wheel" "docker" "video" ]; 
         home = "/home/marco";
-        packages = with pkgs; [
-            calibre
-            conky
-            gimp
-            home-manager
-            imagemagick
-            inkscape
-            libreoffice
-            mupdf
-            pandoc
-            ranger
-            rxvt_unicode
-            sublime
-            vscode
-            youtube-dl
-        ];
+        createHome = true;
+    };
+
+      fileSystems."/home/marco/Downloads" =
+    { 
+        fsType = "tmpfs";
     };
 }

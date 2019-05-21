@@ -5,22 +5,35 @@
     environment.systemPackages = with pkgs; [
         ark
         busybox
-        clipmenu
+        calibre
         chromium
-        gparted
+        clipmenu
+        conky
         firefox
+        gimp
         git
         go
+        gparted
+        home-manager
         htop
+        imagemagick
+        inkscape
         inxi
         libreoffice
         lm_sensors
+        mupdf
         neofetch
         ntfs3g
+        pandoc
         python3
+        ranger
+        rxvt_unicode
         smartmontools
+        sublime
         vivaldi
+        vscode
         wget
+        youtube-dl
     ];
 
     nixpkgs.config = {

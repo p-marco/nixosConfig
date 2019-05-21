@@ -42,6 +42,7 @@
     services.xserver.displayManager.lightdm.enable = true;
     services.xserver.displayManager.lightdm.autoLogin.enable = true;
     services.xserver.displayManager.lightdm.autoLogin.user = "marco";
+    programs.light.enable = true;
 
 
 

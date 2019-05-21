@@ -4,7 +4,7 @@
     # Kernel 
     boot.kernelPackages = pkgs.linuxPackages_hardened;
     boot.supportedFilesystems = [ "ntfs" "fuse" ];
-
+    boot.extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
     security.hideProcessInformation = true;
     security.lockKernelModules = true;
     security.allowUserNamespaces = true;

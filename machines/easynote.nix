@@ -24,19 +24,10 @@
 
   # Boot.
   boot.tmpOnTmpfs = true;
-  boot.initrd.luks.devices = [
-    {
-      name = "root";
-      device = "/dev/sda3";
-      preLVM = true;
-    }
-  ];
 
   # Networking.
   networking.hostName = "easynote"; 
-  networking.wireless.enable = true;
-  services.xserver.synaptics.enable = true;
-  programs.light.enable = true;
+  
 
   
 }
