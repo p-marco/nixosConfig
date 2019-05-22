@@ -29,42 +29,42 @@
   services.xserver.synaptics.enable = true;
   programs.light.enable = true;
 
-  nixpkgs.config.allowUnsupportedSystem = true;
   # nixpkgs.config.stdenv.userHook = '' NIX_CFLAGS_COMPILE+=" -march=native -O2" '';
 
   # Minimal install.
-      environment.systemPackages = with pkgs; [
-        ark
-        clipmenu
-        firefox
-        git
-        go
-        gparted
-        htop
-        imagemagick
-        inxi
-        lm_sensors
-        mupdf
-        neofetch
-        ntfs3g
-        pandoc
-        ranger
-        rxvt_unicode
-        smartmontools
-        sublime
-        vscode
-        wget
-        youtube-dl
-    ];
+  environment.systemPackages = with pkgs; [
+    ark
+    clipmenu
+    firefox
+    git
+    go
+    gparted
+    htop
+    imagemagick
+    inxi
+    lm_sensors
+    mupdf
+    neofetch
+    ntfs3g
+    pandoc
+    ranger
+    rxvt_unicode
+    smartmontools
+    sublime
+    vscode
+    wget
+    youtube-dl
+  ];
 
-    nixpkgs.config = {
-        allowUnfree = true;
-        packageOverrides = pkgs: rec {
-            polybar = pkgs.polybar.override {
-                i3Support = true;
-            };
-        };
+  nixpkgs.config = {
+    allowUnsupportedSystem = true;
+    allowUnfree = true;
+    packageOverrides = pkgs: rec {
+      polybar = pkgs.polybar.override {
+        i3Support = true;
+      };
     };
+  };
 }
 
 
