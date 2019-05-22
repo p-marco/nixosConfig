@@ -3,7 +3,8 @@
 {
   imports =
     [   # Include the results of the hardware scan.
-        ../hardware-configuration.nix
+        # ../hardware-configuration.nix
+        ../hardware/easynote.nix
         # Include base config
         ../configs/base.nix 
         # Include packages for root
@@ -20,6 +21,8 @@
         ../desktops/compton.nix
         # Include Kernel
         ../kernels/linux-hardened.nix
+        # Include filesystems
+        ../hardware/extDevices.nix
     ];
 
   # Boot.

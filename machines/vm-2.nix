@@ -22,7 +22,7 @@
         ../desktops/compton.nix
         # Include Kernel
         ../kernels/linux-hardened.nix
-        # Include external filesystems
+        # Include filesystems
         ../hardware/extDevices.nix
     ];
 
