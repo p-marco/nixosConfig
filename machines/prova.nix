@@ -20,14 +20,6 @@
 
   # Boot.
   boot.tmpOnTmpfs = true;
-  boot.initrd.luks.devices = [
-    {
-      name = "root";
-      # device = "/dev/sda2";
-      device = "/dev/sda3";
-      preLVM = true;  
-    }
-  ];
   
   
   # Networking
@@ -37,7 +29,7 @@
 
   networking.firewall.enable = false;
 
-  networking.hostName = "nixos-marco-prova"; 
+  networking.hostName = "prova"; 
 
   # Enable Docker
   virtualisation.docker.enable = true;

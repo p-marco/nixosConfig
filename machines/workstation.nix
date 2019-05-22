@@ -18,25 +18,15 @@
         ../desktops/plasma.nix
     ];
 
-  # Boot.
-  boot.initrd.luks.devices = [
-    {
-      name = "root";
-      # device = "/dev/sda2";
-      device = "/dev/sda3";
-      preLVM = true;  
-    }
-  ];
   
   
   # Networking
   systemd.services.systemd-user-sessions.enable = false; 
 
-  networking.dhcpcd.extraConfig = "noarp";
 
   networking.firewall.enable = false;
 
-  networking.hostName = "nixos-marco-prova-efi"; 
+  networking.hostName = "workstation"; 
 
   # Enable Docker
   virtualisation.docker.enable = true;

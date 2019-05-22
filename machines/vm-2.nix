@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports =
-    [   # Include the results of the hardware scan.
-        ../hardware-configuration.nix
+    [   # Include the results of the hardware scan in fallback scenario, while now include shared configuration.
+        # ../hardware-configuration.nix
+        # ../hardware/vm2.nix
+        ../hardware/fsCommon.nix
         # Include base config
         ../configs/base.nix 
         # Include base packages for root
@@ -20,21 +22,19 @@
         ../desktops/compton.nix
         # Include Kernel
         ../kernels/linux-hardened.nix
+        # Include external filesystems
+        ../hardware/extDevices.nix
     ];
 
   # Boot.
   boot.tmpOnTmpfs = true;
-  boot.initrd.luks.devices = [
-    {
-      name = "root";
-      device = "/dev/sda3";
-      preLVM = true;
-    }
-  ];
 
   # Networking.
-  networking.hostName = "nixos-marco-vm"; 
+  networking.hostName = "vm2"; 
 
+  # nixpkgs.config.stdenv.userHook = '' NIX_CFLAGS_COMPILE+=" -march=native -O2" '';
+  nix.maxJobs = lib.mkDefault 2;
+  virtualisation.virtualbox.guest.enable = true;
 }
 
 
