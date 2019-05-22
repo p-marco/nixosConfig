@@ -36,6 +36,17 @@
   # nixpkgs.config.stdenv.userHook = '' NIX_CFLAGS_COMPILE+=" -march=native -O2" '';
   nix.maxJobs = lib.mkDefault 2;
   virtualisation.virtualbox.guest.enable = true;
+  
+  
+  services.openssh = {
+    enable = true;
+    permitRootLogin = "yes";
+  };
+  environment.systemPackages = with pkgs; [
+    inetutils
+    mtr
+    sysstat
+  ];
 }
 
 
