@@ -16,7 +16,8 @@
         # Include Bootloader
         ../boot/grub.nix
         # Include Desktop
-        ../desktops/i3.nix
+        # ../desktops/i3.nix
+        ../desktops/openbox.nix
         # ../desktops/compton.nix
         # Include Kernel
         ../kernels/linux-hardened.nix
@@ -35,7 +36,7 @@
   environment.systemPackages = with pkgs; [
     ark
     clipmenu
-    firefox
+    # firefox
     git
     go
     gparted
