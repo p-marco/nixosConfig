@@ -19,9 +19,9 @@
 
     # services.xserver.windowManager.i3.package = pkgs.i3-gaps; 
     services.xserver.windowManager.default = "openbox";
-    # services.xserver.displayManager.lightdm.enable = true;
-    # services.xserver.displayManager.lightdm.autoLogin.enable = true;
-    # services.xserver.displayManager.lightdm.autoLogin.user = "marco";
+    services.xserver.displayManager.slim.enable = true;
+    services.xserver.displayManager.slim.autoLogin = true;
+    services.xserver.displayManager.slim.defaultUser = "marco";
     programs.light.enable = true;
 
 
@@ -42,7 +42,7 @@
 
 
     # Automatically log in at the virtual consoles.
-    services.mingetty.autologinUser = "marco";
+    # services.mingetty.autologinUser = "marco";
 
 
 }

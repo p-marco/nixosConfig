@@ -20,7 +20,7 @@
         # Include Desktop
         # ../desktops/i3.nix
         ../desktops/openbox.nix
-        # ../desktops/compton.nix
+        ../desktops/compton.nix
         # Include Kernel
         ../kernels/linux-hardened.nix
         # Include filesystems
