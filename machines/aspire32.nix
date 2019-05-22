@@ -7,7 +7,7 @@
         # Include base config
         ../configs/base.nix 
         # Include packages for root
-        ../packages/base.nix
+        # ../packages/base.nix
         # Include fonts
         ../fonts/base.nix
         # Include users
@@ -22,14 +22,6 @@
         ../kernels/linux-hardened.nix
     ];
 
-  # Boot.
-  boot.initrd.luks.devices = [
-    {
-      name = "root";
-      device = "/dev/sda3";
-      preLVM = true;
-    }
-  ];
 
   # Networking.
   networking.hostName = "aspire32"; 
@@ -38,7 +30,41 @@
   programs.light.enable = true;
 
   nixpkgs.config.allowUnsupportedSystem = true;
-  nixpkgs.config.stdenv.userHook = '' NIX_CFLAGS_COMPILE+=" -march=native -O2" '';
+  # nixpkgs.config.stdenv.userHook = '' NIX_CFLAGS_COMPILE+=" -march=native -O2" '';
+
+  # Minimal install.
+      environment.systemPackages = with pkgs; [
+        ark
+        clipmenu
+        firefox
+        git
+        go
+        gparted
+        htop
+        imagemagick
+        inxi
+        lm_sensors
+        mupdf
+        neofetch
+        ntfs3g
+        pandoc
+        ranger
+        rxvt_unicode
+        smartmontools
+        sublime
+        vscode
+        wget
+        youtube-dl
+    ];
+
+    nixpkgs.config = {
+        allowUnfree = true;
+        packageOverrides = pkgs: rec {
+            polybar = pkgs.polybar.override {
+                i3Support = true;
+            };
+        };
+    };
 }
 
 
