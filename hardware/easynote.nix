@@ -9,7 +9,7 @@
     ];
 
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel" "fuse" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
