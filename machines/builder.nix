@@ -15,7 +15,7 @@
         # ../users/base.nix
         # ../users/guest.nix
         # Include Bootloader
-        # ../boot/grub.nix
+        ../boot/efi.nix
         # Include Desktop
         # ../desktops/i3.nix
         # ../desktops/compton.nix
