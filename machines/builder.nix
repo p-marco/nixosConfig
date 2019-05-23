@@ -46,7 +46,8 @@
     sysstat
     nix-deploy
   ];
-
+  
+  boot.kernelPackages = pkgs.linuxPackages;
 }
 
 
