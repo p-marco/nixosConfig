@@ -51,6 +51,12 @@
   time.timeZone = "Europe/Prague";
   time.hardwareClockInLocalTime = false;
   boot.kernelParams = [ "nomodeset" ];
+  
+  i18n = {
+    # consoleFont = "Source Code Pro";
+    consoleKeyMap = "it";
+    defaultLocale = "en_US.UTF-8";
+  };
 
 }
 
