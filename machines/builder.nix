@@ -48,6 +48,9 @@
   ];
   
   boot.kernelPackages = pkgs.linuxPackages;
+  time.timeZone = "Europe/Prague";
+  boot.kernelParams = [ "nomodeset" ];
+
 }
 
 
