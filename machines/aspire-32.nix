@@ -54,7 +54,7 @@
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.displayManager.lightdm.autoLogin.enable = true;
   services.xserver.displayManager.lightdm.autoLogin.user = "casa" ;
-
+  services.sshd.enable = true;
 
 
 }
