@@ -5,7 +5,7 @@
     [ # Include the results of the hardware scan.
       ../hardware/aspire32.nix
       ../boot/grub.nix
-      ../configs/base.nix
+      ../configs/minimal.nix
       ../users/casa.nix
       ../users/guest.nix
       ../users/ludmila.nix
