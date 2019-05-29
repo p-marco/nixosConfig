@@ -5,7 +5,7 @@
     [ # Include the results of the hardware scan.
       ../hardware/ryzen.nix
       ../boot/efi.nix
-      ../configure/base.nix
+      ../configs/base.nix
       ../users/casa.nix
       ../users/guest.nix
       ../users/ludmila.nix
