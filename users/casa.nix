@@ -3,15 +3,11 @@
 {
 
     # User section.
-    users.users.guest = {
+    users.users.casa = {
         isNormalUser = true;
         extraGroups = [ "video" ]; 
-        home = "/home/guest";
+        home = "/home/casa";
         createHome = true;
     };
-    
-    fileSystems."/home/guest" =
-    { 
-        fsType = "tmpfs";
-    };
+
 }

@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
-{  
+{     
+    
+    nixpkgs.config.allowUnfree = true;
+
     # Internationalization.
     i18n = {
       consoleFont = "Source Code Pro";
@@ -19,7 +22,7 @@
     
     # Networking.
     networking.dhcpcd.extraConfig = "noarp";
-    networking.wireless.enable = true;
+    # networking.wireless.enable = true;
 
     # Services.
     services.fstrim.enable = true;

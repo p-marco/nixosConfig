@@ -3,14 +3,14 @@
 {
 
     # User section.
-    users.users.guest = {
+    users.users.ludmila = {
         isNormalUser = true;
         extraGroups = [ "video" ]; 
-        home = "/home/guest";
+        home = "/home/ludmila";
         createHome = true;
     };
-    
-    fileSystems."/home/guest" =
+
+      fileSystems."/home/ludmila/Downloads" =
     { 
         fsType = "tmpfs";
     };

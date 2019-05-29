@@ -162,3 +162,43 @@ FOR BIOS:
     # mount /dev/sda2 /mnt/boot
 
 Now is possible to follow the installation procedure.
+
+## Wireless Connection
+
+Set the wpa passphrase via
+
+    # wpa_passphrase SSID password > wpa_supplicant.conf
+
+Check the interface via ifconfig and run the script on that interface:
+
+    # wpa_supplicant -B -i <interface> -c wpa_supplicant.conf
+
+Wait some seconds and restart the service:
+
+    # systemctl restart wpa_supplicant
+
+If it runs, you will be able to ping.
+
+
+## Home manager
+
+User profiles are specified into ./home-manager. Give this folder permission access to r/w operations:
+
+    # chmod -R 755 <directory>/home-manager
+
+Install home-manager for each user:
+
+    $ mkdir -m 0755 -p /nix/var/nix/{profiles,gcroots}/per-user/$USER
+
+    $ nix-channel --add https://github.com/rycee/home-manager/archive/release-19.03.tar.gz home-manager
+    $ nix-channel --update
+
+Logout and login, then:
+
+    $ nix-shell '<home-manager>' -A install
+
+Now remove the file generated and symlink to the relevant user and build the generation:
+
+    $ rm -rf ~/.config/nixpkgs/home.nix
+    $ ln -s /etc/nixosConfig/home/manager/USER.nix ~/.config/nixpkgs/home.nix
+    $ home-manager switch
