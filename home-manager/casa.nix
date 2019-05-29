@@ -8,7 +8,6 @@
   ];
   
   xsession.enable = true;
-  xsession.windowManager.openbox.enable = true; 
 
   programs.feh.enable = true;
 }
