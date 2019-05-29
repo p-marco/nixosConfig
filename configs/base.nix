@@ -27,7 +27,7 @@
     # Services.
     services.fstrim.enable = true;
     services.xserver.layout = "it,us,cz,sk";
-    services.xserver.synaptics.enable = true;
+    # services.xserver.synaptics.enable = true;
     
     # Enable sound.
     sound.enable = true;
