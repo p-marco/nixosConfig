@@ -41,7 +41,7 @@
     youtube-dl
   ];
 
-
+  boot.supportedFilesystems = [ "ntfs" "fuse" ];
   sound.enable = true;
   
   services.xserver.enable = true;
