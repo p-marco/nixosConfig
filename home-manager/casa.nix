@@ -7,7 +7,7 @@
     pkgs.feh
   ];
   
-  xsession.enable = true;
+  # xsession.enable = true;
 
   programs.feh.enable = true;
 }
