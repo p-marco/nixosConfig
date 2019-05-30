@@ -19,7 +19,6 @@
 
 
   environment.systemPackages = with pkgs; [
-    ark
     busybox
     git 
     home-manager
