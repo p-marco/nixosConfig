@@ -41,13 +41,16 @@
   
   system.stateVersion = "19.03"; # Did you read the comment?
   services.xserver.desktopManager.default = "none";
-  services.xserver.windowManager.default = "i3";
+  services.xserver.windowManager.default = "openbox";
   services.xserver.windowManager.openbox.enable = true;
   services.xserver.windowManager.i3.enable = true;
   
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.displayManager.lightdm.autoLogin.enable = true;
-  services.xserver.displayManager.lightdm.autoLogin.user = "casa";
+  services.xserver.displayManager.startx.enable = true;
+  services.mingetty.autologinUser = "casa";
+  
+  # services.xserver.displayManager.lightdm.enable = true;
+  # services.xserver.displayManager.lightdm.autoLogin.enable = true;
+  # services.xserver.displayManager.lightdm.autoLogin.user = "casa";
  
   services.sshd.enable = true;
 
