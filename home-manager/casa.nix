@@ -8,6 +8,7 @@
   ];
   
   xsession.enable = true;
+  xsession.windowManager.command = "exec openbox-session";
 
   programs.feh.enable = true;
 }
