@@ -43,8 +43,7 @@
   services.xserver.desktopManager.default = "none";
   services.xserver.windowManager.default = "openbox";
   services.xserver.windowManager.openbox.enable = true;
-  services.xserver.windowManager.xterm.enable = true;
-
+  
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.displayManager.lightdm.autoLogin.enable = true;
   services.xserver.displayManager.lightdm.autoLogin.user = "casa";
