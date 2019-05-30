@@ -3,7 +3,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ../hardware/aspire32.nix
+      ../hardware/aspire32-noLvm.nix
       ../boot/grub.nix
       ../configs/minimal.nix
       ../users/casa.nix
@@ -42,11 +42,10 @@
   system.stateVersion = "19.03"; # Did you read the comment?
   services.xserver.windowManager.openbox.enable = true;
 
-  # services.xserver.displayManager.lightdm.enable = true;
-  # services.xserver.displayManager.lightdm.autoLogin.enable = true;
-  # services.xserver.displayManager.lightdm.autoLogin.user = "casa" ;
-  
-  services.mingetty.autologinUser = "casa";
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.displayManager.lightdm.autoLogin.enable = true;
+  services.xserver.displayManager.lightdm.autoLogin.user = "casa";
+ 
   services.sshd.enable = true;
 
 
