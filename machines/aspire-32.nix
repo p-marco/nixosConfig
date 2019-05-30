@@ -41,6 +41,7 @@
   
   system.stateVersion = "19.03"; # Did you read the comment?
   services.xserver.desktopManager.default = "none";
+  services.xserver.windowManager.default = "openbox";
   services.xserver.windowManager.openbox.enable = true;
 
   services.xserver.displayManager.lightdm.enable = true;
