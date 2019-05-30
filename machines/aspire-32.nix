@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports =
@@ -21,28 +21,20 @@
   environment.systemPackages = with pkgs; [
     ark
     busybox
-    firefox 
     git 
-    go
-    gparted
     home-manager
     htop 
-    imagemagick
     inxi
     lm_sensors
-    mupdf
     neofetch 
     ntfs3g
     rclone 
     rsync 
     smartmontools
     wget 
-    youtube-dl
-    vlc
   ];
 
   boot.supportedFilesystems = [ "ntfs" "fuse" ];
-  sound.enable = true;
   
   services.xserver.enable = true;
   services.xserver.xkbOptions = "eurosign:e";
