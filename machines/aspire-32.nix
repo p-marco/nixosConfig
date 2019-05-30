@@ -48,7 +48,7 @@
   services.sshd.enable = true;
   
   boot.kernelParams = [
-     fbcon="rotate:3";
+     fbcon=rotate:3;
   ];
 
 
