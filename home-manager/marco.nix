@@ -13,6 +13,7 @@
   home.packages = [
     pkgs.arc-theme
     pkgs.betterlockscreen
+    pkgs.chromium
     pkgs.dmenu #application launcher most people use
     pkgs.dunst
     pkgs.feh

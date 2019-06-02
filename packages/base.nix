@@ -3,49 +3,30 @@
 {
 
     environment.systemPackages = with pkgs; [
-        ark
         busybox
-        calibre
-        chromium
         clipmenu
-        conky
-        firefox
-        gimp
-        git
+        firefox 
+        git 
         go
         gparted
         home-manager
-        htop
+        htop 
         imagemagick
-        inkscape
         inxi
         libreoffice
         lm_sensors
         mupdf
-        neofetch
+        neofetch 
         ntfs3g
-        pandoc
-        python3
         ranger
-        rxvt_unicode
+        rclone 
+        rsync 
         smartmontools
-        sublime
-        vivaldi
-        vscode
         wget
         youtube-dl
     ];
 
-    nixpkgs.config = {
-        allowUnfree = true;
-        packageOverrides = pkgs: rec {
-            polybar = pkgs.polybar.override {
-                i3Support = true;
-            };
-            libreoffice = pkgs.libreoffice.overrideDerivation (old: {
-                NIX_CFLAGS_COMPILE = "-march=native -O2";
-            });
-        };
-    };
+    nixpkgs.config.allowUnfree = true;
+    
 }
 
