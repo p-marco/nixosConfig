@@ -39,12 +39,6 @@
         ../users/marco.nix
     ];
 
-  # Boot.
-  boot.tmpOnTmpfs = true;
-
-  # Networking.
-  networking.hostName = "easynote"; 
-  
   boot ={
     supportedFilesystems = [ "ntfs" "fuse" ]; 
     tmpOnTmpfs = true;
