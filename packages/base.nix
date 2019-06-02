@@ -18,6 +18,7 @@
         mupdf
         neofetch 
         ntfs3g
+        oh-my-zsh
         ranger
         rclone 
         rsync 
@@ -28,7 +29,6 @@
     ];
 
     nixpkgs.config.allowUnfree = true;
-    programs.zsh.enable = true;
     
 }
 
