@@ -61,7 +61,7 @@
       displayManager = {
         lightdm = {
           enable = true;
-          autologin = {
+          autoLogin = {
             enable = true;
             user = "marco";
           };
