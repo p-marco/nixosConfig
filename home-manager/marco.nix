@@ -46,7 +46,6 @@
   services.polybar.script = " " ;
   programs.rofi.enable = true; 
   programs.feh.enable = true;
-  programs.betterlockscreen.enable = true;
 
   services.compton = {
     enable = true;
