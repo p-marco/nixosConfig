@@ -1,4 +1,4 @@
-{ config,   pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -13,7 +13,7 @@
   home.packages = [
     pkgs.arc-theme
     pkgs.betterlockscreen
-    pkgs.chromium
+    # pkgs.chromium
     pkgs.dmenu #application launcher most people use
     pkgs.dunst
     pkgs.feh
@@ -46,7 +46,7 @@
   services.polybar.script = " " ;
   programs.rofi.enable = true; 
   programs.feh.enable = true;
-
+  programs.betterlockscreen.enable = true;
 
   services.compton = {
     enable = true;
@@ -68,6 +68,8 @@
         ];
     '';
   };
+
+  home.keyboard.layout = "it,us,cz,sk";
 
 
 }

@@ -24,9 +24,11 @@
         smartmontools
         wget
         youtube-dl
+        zsh
     ];
 
     nixpkgs.config.allowUnfree = true;
+    programs.zsh.enable = true;
     
 }
 

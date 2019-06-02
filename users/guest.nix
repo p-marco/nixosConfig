@@ -8,6 +8,7 @@
         extraGroups = [ "video" ]; 
         home = "/home/guest";
         createHome = true;
+        shell = pkgs.zsh;
     };
     
     fileSystems."/home/guest" =
