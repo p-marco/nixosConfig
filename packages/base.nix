@@ -14,6 +14,7 @@
         imagemagick
         inxi
         libreoffice
+        light
         lm_sensors
         mupdf
         neofetch 
@@ -29,6 +30,7 @@
     ];
 
     nixpkgs.config.allowUnfree = true;
+    programs.light.enable = true;
 
     programs.zsh = {
       enable = true;

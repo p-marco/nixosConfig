@@ -22,7 +22,7 @@
     pkgs.i3lock 
     pkgs.i3status 
     # pkgs.libreoffice
-    pkgs.light
+    # pkgs.light
     pkgs.lxappearance
     pkgs.neofetch 
     pkgs.numix-cursor-theme
