@@ -64,6 +64,10 @@
   # Enable sound :
   sound.enable = true;
   
+  # Enable virtualbox.
+  virtualisation.virtualbox.host.enable = true;
 
+  # Enable the Oracle Extension Pack.
+  nixpkgs.config.virtualbox.enableExtensionPack = true;
 
 }

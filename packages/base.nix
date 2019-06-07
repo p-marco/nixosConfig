@@ -3,6 +3,7 @@
 {
 
     environment.systemPackages = with pkgs; [
+        cpufrequtils
         clipmenu
         coreutils
         firefox 
