@@ -35,12 +35,10 @@
       fstrim = {
         enable = true;
       };
-      xserver = {
+    xserver = {
         enable = true;
         xkbOptions = "eurosign:e";
         layout = "it,us,cz,sk";
-      };
-    xserver = {
       desktopManager = {
         gnome3 = {
           enable = false;
