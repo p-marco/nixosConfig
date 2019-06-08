@@ -3,7 +3,7 @@
 {
   imports =
     [ # Include the results of the hardware scan :
-      /mnt/etc/nixos/hardware-configuration.nix
+      ../hardware-configuration.nix
       # ../hardware/olablit.nix
       # Include bootloader :
       ../boot/efi.nix
