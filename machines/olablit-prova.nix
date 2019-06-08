@@ -15,7 +15,7 @@
       ../fonts/base.nix
       # Users :
       ../users/guest.nix
-      ../users/marco.nix
+      # ../users/marco.nix
     ];
 
   
@@ -97,15 +97,30 @@
     # Timezone.
     time.timeZone = "Europe/Prague";
 
+    # User section.
+    users.users.marco = {
+        isNormalUser = true;
+        extraGroups = [ "wheel" "docker" "video" ]; 
+        home = "/data";
+        createHome = true;
+        shell = pkgs.zsh;
+    };
 
+    fileSystems."/data/Downloads" =
+    { 
+        fsType = "tmpfs";
+        options = ["nofail"];
+    };
+  
+  
+  # Enable virtualbox.
+  virtualisation.virtualbox.host.enable = true;
 
+  # Enable the Oracle Extension Pack.
+  nixpkgs.config.virtualbox.enableExtensionPack = true;
 
-    # services.fstrim.enable = true;
-    # 
-    # services.xserver.enable = true;
-    # services.xserver.xkbOptions = "eurosign:e";
-    # services.xserver.layout = "it,us,cz,sk";
-
+  # Enable Docker.
+  virtualisation.docker.enable = true;
 }
 
 
