@@ -48,8 +48,7 @@
         lightdm = {
           enable = true;
           autoLogin = {
-            enable = true;
-            user = "marco";
+            enable = false;
           };
         };
       };
