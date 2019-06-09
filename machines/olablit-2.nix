@@ -31,7 +31,7 @@
         allowDiscards = true;
       }
     ];
-  }
+  };
 
   networking = {
     hostName = "olablit";
