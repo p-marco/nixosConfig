@@ -28,9 +28,15 @@
         device = "/dev/sda3";
         preLVM = true;
         keyFile = "/dev/sdc";
+<<<<<<< HEAD
         allowDiscards = true;
 	keyFileSize = 4096;
 	keyFileOffset = 0;
+=======
+        keyFileSize = 4096;
+        keyFileOffset = 0;
+        fallbackToPassword  = true;
+>>>>>>> 3caca0ef423765ebc98cd2c138221a59991093f2
       }
     ];
   };
@@ -114,16 +120,11 @@
     users.users.marco = {
         isNormalUser = true;
         extraGroups = [ "wheel" "docker" "video" ]; 
-        home = "/home/marco";
+        home = "/data/home";
         createHome = true;
         shell = pkgs.zsh;
     };
 
-    fileSystems."/home/marco/Downloads" =
-    { 
-        fsType = "tmpfs";
-        options = ["nofail"];
-    };
 
     users.users.processes = {
         isNormalUser = true;
