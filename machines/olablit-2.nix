@@ -3,7 +3,7 @@
 {
   imports =
     [ # Include the results of the hardware scan :
-      ../hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
       # ../hardware/olablit.nix
       # Include bootloader :
       ../boot/efi.nix
@@ -14,7 +14,7 @@
       # Fonts : 
       ../fonts/base.nix
       # Users :
-      ../users/guest.nix
+      # ../users/guest.nix
       # ../users/marco.nix
     ];
 
@@ -24,11 +24,13 @@
     tmpOnTmpfs = true;
     initrd.luks.devices = [
       {
-        name = "root";
+        name = "system";
         device = "/dev/sda3";
         preLVM = true;
-        keyFile = "/mnt/access/.key";
-        allowDiscards = true;
+        keyFile = "/dev/sdc";
+        keyFileSize = 4096;
+        keyFileOffset = 0;
+        fallbackToPassword  = true;
       }
     ];
   };
@@ -112,16 +114,11 @@
     users.users.marco = {
         isNormalUser = true;
         extraGroups = [ "wheel" "docker" "video" ]; 
-        home = "/home/marco";
+        home = "/data/home";
         createHome = true;
         shell = pkgs.zsh;
     };
 
-    fileSystems."/home/marco/Downloads" =
-    { 
-        fsType = "tmpfs";
-        options = ["nofail"];
-    };
 
     users.users.processes = {
         isNormalUser = true;
