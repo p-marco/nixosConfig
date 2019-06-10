@@ -3,7 +3,7 @@
 {
   imports =
     [ # Include the results of the hardware scan :
-      ../hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
       # ../hardware/olablit.nix
       # Include bootloader :
       ../boot/efi.nix
@@ -14,7 +14,7 @@
       # Fonts : 
       ../fonts/base.nix
       # Users :
-      ../users/guest.nix
+      # ../users/guest.nix
       # ../users/marco.nix
     ];
 
@@ -24,11 +24,13 @@
     tmpOnTmpfs = true;
     initrd.luks.devices = [
       {
-        name = "root";
+        name = "system";
         device = "/dev/sda3";
         preLVM = true;
-        keyFile = "/mnt/access/.key";
+        keyFile = "/dev/sdc";
         allowDiscards = true;
+	keyFileSize = 4096;
+	keyFileOffset = 0;
       }
     ];
   };
@@ -125,7 +127,7 @@
 
     users.users.processes = {
         isNormalUser = true;
-        extraGroups = [ "docker" "video" "www-data" ]; 
+        extraGroups = ["docker" "video" "www-data" "apache" ]; 
         home = "/home/processes";
         createHome = true;
         shell = pkgs.zsh;
@@ -139,6 +141,9 @@
 
   # Enable Docker.
   virtualisation.docker.enable = true;
+  
+  # Enable sshd.
+  services.sshd.enable = true;
 }
 
 
