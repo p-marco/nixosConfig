@@ -22,21 +22,9 @@
       fsType = "vfat";
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/f62cfc83-076d-4fde-b99f-ac6af813c984";
-      fsType = "ext4";
-    };
-
-  fileSystems."/boot" =
-    { device = "/boot";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
   fileSystems."/var" =
-    { device = "/boot";
-      fsType = "none";
-      options = [ "bind" ];
+    { device = "/dev/disk/by-uuid/455bc6d6-dfd0-4728-aa93-e39156a26fbe";
+      fsType = "ext4";
     };
 
   fileSystems."/var/log" =
@@ -52,21 +40,25 @@
   fileSystems."/private/home" =
     { device = "/dev/disk/by-uuid/0702ad17-4c9b-44f0-b5f5-05408f441611";
       fsType = "ext4";
+      options = ["user" "rw" "nofail"];
     };
 
   fileSystems."/private/data" =
     { device = "/dev/disk/by-uuid/4598e5e0-4942-40fd-80ff-b8dbcc93f51a";
       fsType = "ext4";
-    };
-
-  fileSystems."/backup/var" =
-    { device = "/dev/disk/by-uuid/5b1430f6-c753-4ebc-8c44-98348e2f5db2";
-      fsType = "ext4";
+      options = ["user" "rw" "nofail"];
     };
 
   fileSystems."/backup/data" =
     { device = "/dev/disk/by-uuid/2ac52817-90ae-4526-b1cf-53019eb7d69f";
       fsType = "ext4";
+      options = ["user" "rw" "nofail"];
+    };
+
+  fileSystems."/backup/var" =
+    { device = "/dev/disk/by-uuid/5b1430f6-c753-4ebc-8c44-98348e2f5db2";
+      fsType = "ext4";
+      options = ["user" "rw" "nofail"];
     };
 
   swapDevices =

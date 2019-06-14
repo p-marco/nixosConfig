@@ -3,7 +3,7 @@
 {
   imports =
     [ # Include the results of the hardware scan :
-      /etc/nixos/hardware-configuration.nix
+      ../hardware/olablit.nix
       # ../hardware/olablit.nix
       # Include bootloader :
       ../boot/efi.nix
@@ -27,10 +27,11 @@
         name = "system";
         device = "/dev/sda3";
         preLVM = true;
-        keyFile = "/dev/sdc";
+        keyFile = "/dev/disk/by-path/pci-0000:00:14.0-usb-0:12:1.0-scsi-0:0:0:0";
         allowDiscards = true;
 	keyFileSize = 4096;
 	keyFileOffset = 0;
+	fallbackToPassword = true;
       }
     ];
   };
@@ -114,21 +115,16 @@
     users.users.marco = {
         isNormalUser = true;
         extraGroups = [ "wheel" "docker" "video" ]; 
-        home = "/home/marco";
+        home = "/private/home";
         createHome = true;
         shell = pkgs.zsh;
     };
 
-    fileSystems."/home/marco/Downloads" =
-    { 
-        fsType = "tmpfs";
-        options = ["nofail"];
-    };
 
     users.users.processes = {
         isNormalUser = true;
         extraGroups = ["docker" "video" "www-data" "apache" ]; 
-        home = "/home/processes";
+        home = "/var/processes";
         createHome = true;
         shell = pkgs.zsh;
     };  
