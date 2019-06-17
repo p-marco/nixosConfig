@@ -128,6 +128,13 @@
         createHome = true;
         shell = pkgs.zsh;
     };  
+   
+    users.users.guest = {
+    	isNormalUser = true;
+	home = "/home/guest";
+	createHome = true;
+	shell = pkgs.zsh;
+    };
   
   # Enable virtualbox.
   virtualisation.virtualbox.host.enable = true;

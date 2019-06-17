@@ -13,7 +13,7 @@
   home.packages = [
     pkgs.arc-theme
     pkgs.betterlockscreen
-    # pkgs.chromium
+    pkgs.chromium
     pkgs.dmenu #application launcher most people use
     pkgs.dunst
     pkgs.feh
@@ -22,7 +22,7 @@
     pkgs.i3lock 
     pkgs.i3status 
     # pkgs.libreoffice
-    # pkgs.light
+    pkgs.light
     pkgs.lxappearance
     pkgs.neofetch 
     pkgs.numix-cursor-theme
@@ -35,6 +35,7 @@
     pkgs.rxvt_unicode
     pkgs.vscode
     pkgs.sublime
+    pkgs.tty-clock
     pkgs.gimp
     pkgs.inkscape
     pkgs.pandoc
