@@ -25,9 +25,9 @@
   };
 
   networking = {
-    hostName = "easynote";
+    hostName = "probook";
     wireless = {
-      enable = true;
+      enable = false;
     };
   };
 
@@ -51,7 +51,7 @@
         };
       };
       synaptics = {
-        enable = true;
+        enable = false;
       };
       windowManager = {
         i3 = {
