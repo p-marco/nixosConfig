@@ -39,11 +39,11 @@
         };
       };
       displayManager = {
-        lightdm = {
+        gdm = {
           enable = true;
-          autoLogin = {
+            autoLogin = {
             enable = true;
-            user = "marco";
+            user = "ludmila";
           };
         };
       };
@@ -60,8 +60,16 @@
         };
       };
     };
+      fstrim = {
+        enable = true;
+      };
+      xserver = {
+        enable = true;
+        xkbOptions = "eurosign:e";
+        layout = "sk,cz,it,us";
+      };
+    
   };
-
 
 
 
@@ -89,17 +97,6 @@
     # Networking.
     networking.dhcpcd.extraConfig = "noarp";
 
-    # Services.
-    services = {
-      fstrim = {
-        enable = true;
-      };
-      xserver = {
-        enable = true;
-        xkbOptions = "eurosign:e";
-        layout = "sk,cz,it,us";
-      };
-    };
     
     #System.
     system = {
@@ -111,6 +108,10 @@
     
     # Timezone.
     time.timeZone = "Europe/Prague";
+
+
+    security.pam.services.gdm.enableGnomeKeyring = true;
+
 
 
   
