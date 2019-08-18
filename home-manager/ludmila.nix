@@ -18,5 +18,7 @@
     pkgs.arc-theme
     pkgs.numix-cursor-theme
     pkgs.papirus-icon-theme
+    pkgs.skypeforlinux
+    pkgs.vscode
   ];
 }

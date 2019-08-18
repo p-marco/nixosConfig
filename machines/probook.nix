@@ -76,14 +76,7 @@
   ## CONFIG BASE, DIFFERENT LVM VOLUME
 
     # Boot.
-    boot.initrd.luks.devices = [
-      {
-        name = "root";
-        device = "/dev/sdb3";
-        preLVM = true;
-      }
-    ];
-
+    
     # Internationalization.
     i18n = {
       consoleFont = "Source Code Pro";
