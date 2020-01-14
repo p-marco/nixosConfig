@@ -5,7 +5,7 @@
     [ # Include the results of the hardware scan :
       ../hardware/xps.nix
       # Include bootloader :
-      ../boot/efi.nix
+      # ../boot/efi.nix
       # General configuration :
       # ../configs/base.nix
       # Packages :
@@ -16,7 +16,13 @@
       # ../users/casa.nix
       # ../users/guest.nix
       # ../users/ludmila.nix
-      ../users/marco.nix
+      # ../users/marco.nix
+
+      # LIVE
+      <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
+      # Provide an initial copy of the NixOS channel so that the user
+      # doesn't need to run "nix-channel --update" first.
+      <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
     ];
 
 
@@ -37,6 +43,9 @@
       preLVM = true;
     }
   ];
+    
+  
+  # Boot.
 
   boot.kernelModules = [ "kvm-intel" ];
   boot.kernelParams = [
@@ -97,16 +106,8 @@
 
 
 
-{     
+     
     
-    # Boot.
-    boot.initrd.luks.devices = [
-      {
-        name = "root";
-        device = "/dev/sda3";
-        preLVM = true;
-      }
-    ];
 
     # Internationalization.
     i18n = {
@@ -150,8 +151,69 @@
     # services.xserver.xkbOptions = "eurosign:e";
     # services.xserver.layout = "it,us,cz,sk";
 
-}
+
+  powerManagement.enable = true;
+  powerManagement.cpuFreqGovernor = "ondemand"; # will be managed by tlp
+  #  powerManagement.cpuFreqGovernor = null; # will be managed by tlp
+  powerManagement.powerUpCommands = ''
+    echo XHC > /proc/acpi/wakeup
+  '';
 
 
+
+  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.package = pkgs.pulseaudioFull;
+  hardware.pulseaudio.extraConfig = "load-module module-switch-on-connect";
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.extraConfig = ''
+    [general]
+    Enable=Source,Sink,Media,Socket
+  '';
+
+
+
+
+
+  programs.zsh.promptInit = "";
+  services.openssh.enable = false;
+  services.printing.enable = true;
+  services.dbus.enable = true;
+  services.acpid.enable = true;
+  services.upower.enable = true;
+#  services.tlp.enable = true;
+  services.gnome3.gnome-documents.enable = false;
+  services.gnome3.gnome-online-accounts.enable = false;
+  services.gnome3.gnome-online-miners.enable = false;
+  services.gnome3.gnome-user-share.enable = false;
+  services.gnome3.evolution-data-server.enable = lib.mkForce false;
+  services.packagekit.enable = false;
+
+  environment.gnome3.excludePackages = [
+    pkgs.gnome3.epiphany
+    pkgs.gnome3.totem
+    pkgs.gnome3.vino
+    pkgs.gnome3.yelp
+    pkgs.gnome3.evolution-data-server
+    pkgs.gnome3.evolution
+    pkgs.gnome3.gnome-music
+    pkgs.gnome3.gnome-software
+    pkgs.gnome3.simple-scan
+    pkgs.gnome3.gnome-packagekit
+    pkgs.gnome3.gnome-maps
+    pkgs.gnome3.gnome-system-log
+    pkgs.gnome3.gnome-user-docs
+    pkgs.gnome3.gnome-weather
+    pkgs.gnome3.baobab
+    pkgs.gnome3.accerciser
+  ];
+
+
+  users.users.marco = {
+    isNormalUser = true;
+    createHome = true;
+    uid = 1000;
+    extraGroups = [ "wheel" "networkmanager" "plugdev" "dialout"];
+    shell = pkgs.zsh;
+  };
 
 }

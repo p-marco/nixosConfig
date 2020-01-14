@@ -28,6 +28,7 @@
         wget
         youtube-dl
         zsh
+        flashplayer
     ];
 
     nixpkgs.config.allowUnfree = true;

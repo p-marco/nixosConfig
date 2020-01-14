@@ -66,8 +66,11 @@
   
   # Enable virtualbox.
   virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
 
   # Enable the Oracle Extension Pack.
-  nixpkgs.config.virtualbox.enableExtensionPack = true;
+
+  nixpkgs.config.firefox.enableAdobe = true;
 
 }
