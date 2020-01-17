@@ -18,15 +18,10 @@
       # ../users/ludmila.nix
       # ../users/marco.nix
 
-      # LIVE
-      <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
-      # Provide an initial copy of the NixOS channel so that the user
-      # doesn't need to run "nix-channel --update" first.
-      <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
     ];
 
 
-  fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
+  # fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
   
   boot ={
@@ -36,13 +31,13 @@
     tmpOnTmpfs = true;
   };
 
-  boot.initrd.luks.devices = [
-    {
-      name = "root";
-      device = "/dev/nvme0n1p2";
-      preLVM = true;
-    }
-  ];
+#  boot.initrd.luks.devices = [
+#    {
+#      name = "root";
+#      device = "/dev/nvme0n1p2";
+#      preLVM = true;
+#    }
+#  ];
     
   
   # Boot.
