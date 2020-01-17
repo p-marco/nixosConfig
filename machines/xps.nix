@@ -63,6 +63,9 @@
 
   services = {
     xserver = {
+              enable = true;
+        xkbOptions = "eurosign:e";
+        layout = "it,us,cz,sk";
       desktopManager = {
         gnome3 = {
           enable = true;
@@ -114,17 +117,7 @@
     # Networking.
     networking.dhcpcd.extraConfig = "noarp";
 
-    # Services.
-    services = {
-      fstrim = {
-        enable = true;
-      };
-      xserver = {
-        enable = true;
-        xkbOptions = "eurosign:e";
-        layout = "it,us,cz,sk";
-      };
-    };
+
     
     #System.
     system = {
