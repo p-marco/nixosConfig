@@ -54,16 +54,12 @@
   ];
 
 
-  networking = {
-    hostName = "xps";
-    wireless = {
-      enable = true;
-    };
-  };
-
   services = {
+    fstrim = {
+        enable = true;
+    };
     xserver = {
-              enable = true;
+        enable = true;
         xkbOptions = "eurosign:e";
         layout = "it,us,cz,sk";
       desktopManager = {
@@ -88,11 +84,17 @@
           enable = false;
         };
       };
+      libinput = {
+        enable = true;
+        tapping = false;
+        disableWhileTyping = true;
+        scrollMethod = "twofinger";
+        naturalScrolling = false;
+      };
     };
   };
 
-
-
+    
   # Enable sound :
   sound.enable = true;
   
@@ -103,6 +105,8 @@
   nixpkgs.config.virtualbox.enableExtensionPack = true;
 
 
+    networking.wireless.enable = false;
+    networking.hostName = "xps";
 
      
     
@@ -114,11 +118,9 @@
       defaultLocale = "en_US.UTF-8";
     };
     
-    # Networking.
-    networking.dhcpcd.extraConfig = "noarp";
 
+    # Services.
 
-    
     #System.
     system = {
       autoUpgrade = {
@@ -131,13 +133,6 @@
     time.timeZone = "Europe/Prague";
 
 
-
-
-    # services.fstrim.enable = true;
-    # 
-    # services.xserver.enable = true;
-    # services.xserver.xkbOptions = "eurosign:e";
-    # services.xserver.layout = "it,us,cz,sk";
 
 
   powerManagement.enable = true;
