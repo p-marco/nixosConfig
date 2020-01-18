@@ -209,9 +209,6 @@
     extraGroups = [ "wheel" "networkmanager" "plugdev" "dialout"];
     shell = pkgs.zsh;
   };
-  fileSystems."/home/marco/Downloads" = { 
-    fsType = "tmpfs";
-  };
 
   ##########################################
   ### OTHER PACKAGES
