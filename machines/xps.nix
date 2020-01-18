@@ -229,7 +229,7 @@
     gnomeExtensions.arc-menu
     gnomeExtensions.dash-to-panel
     gnomeExtensions.dash-to-dock
-    gnomeExtensions.clipboard-indicator
+    #gnomeExtensions.clipboard-indicator
     gnomeExtensions.no-title-bar
     gnomeExtensions.gsconnect
 
