@@ -117,7 +117,8 @@
 
   # Internationalization.
   i18n = {
-    consoleFont = "Source Code Pro";
+    #consoleFont = "Source Code Pro";
+    consoleFont = "Terminus16x32";
     consoleKeyMap = "it";
     defaultLocale = "en_US.UTF-8";
   };
