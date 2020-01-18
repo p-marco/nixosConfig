@@ -31,7 +31,7 @@
     earlyVconsoleSetup = true;
     loader.efi.canTouchEfiVariables = true;
     loader.systemd-boot.enable = true;
-    loader.systemd-boot.consoleMode = "0";
+    # loader.systemd-boot.consoleMode = "0";
     supportedFilesystems = [ "ntfs" "fuse" ]; 
     tmpOnTmpfs = true;
   };
