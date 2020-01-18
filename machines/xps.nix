@@ -124,7 +124,7 @@
       autoUpgrade = {
         enable = true;
       };
-      stateVersion = "19.09";
+      stateVersion = "20.03";
     }; 
     
     # Timezone.
@@ -169,13 +169,18 @@
   services.acpid.enable = true;
   services.upower.enable = true;
 #  services.tlp.enable = true;
-  services.gnome3.gnome-documents.enable = false;
-  services.gnome3.gnome-online-accounts.enable = false;
-  services.gnome3.gnome-online-miners.enable = false;
-  services.gnome3.gnome-user-share.enable = false;
-  services.gnome3.evolution-data-server.enable = lib.mkForce false;
-  services.packagekit.enable = false;
+  # services.gnome3.gnome-documents.enable = false;
+  # services.gnome3.gnome-online-accounts.enable = false;
+  # services.gnome3.gnome-online-miners.enable = false;
+  # services.gnome3.gnome-user-share.enable = false;
+  # services.gnome3.evolution-data-server.enable = lib.mkForce false;
+  # services.packagekit.enable = false;
 
+
+  ##########################################
+  ### GNOME SPECIFIC
+  ##########################################
+  
   environment.gnome3.excludePackages = [
     pkgs.gnome3.epiphany
     pkgs.gnome3.totem
@@ -186,14 +191,23 @@
     pkgs.gnome3.gnome-music
     pkgs.gnome3.gnome-software
     pkgs.gnome3.simple-scan
-    pkgs.gnome3.gnome-packagekit
+    # pkgs.gnome3.gnome-packagekit
     pkgs.gnome3.gnome-maps
-    pkgs.gnome3.gnome-system-log
+    # pkgs.gnome3.gnome-system-log
     pkgs.gnome3.gnome-user-docs
     pkgs.gnome3.gnome-weather
     pkgs.gnome3.baobab
     pkgs.gnome3.accerciser
   ];
+
+  programs.dconf.enable = true;
+
+  nixpkgs.config.firefox.enableGnomeExtensions = true;
+  services.gnome3.chrome-gnome-shell.enable = true;
+
+  ##########################################
+  ### USERS
+  ##########################################
 
 
   users.users.marco = {
@@ -203,5 +217,17 @@
     extraGroups = [ "wheel" "networkmanager" "plugdev" "dialout"];
     shell = pkgs.zsh;
   };
+
+  ##########################################
+  ### OTHER PACKAGES
+  ##########################################
+
+
+  environment.systemPackages = with pkgs; [
+    gnome3.gnome-tweaks
+    slack
+    tdesktop
+    skypeforlinux
+  ];
 
 }
