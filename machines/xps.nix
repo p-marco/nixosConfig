@@ -226,7 +226,7 @@
   environment.systemPackages = with pkgs; [
     gnome3.gnome-tweaks
     slack
-    tdesktop
+    # tdesktop
     skypeforlinux
   ];
 
