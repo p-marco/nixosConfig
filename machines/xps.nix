@@ -34,6 +34,7 @@
     # loader.systemd-boot.consoleMode = "0";
     supportedFilesystems = [ "ntfs" "fuse" ]; 
     tmpOnTmpfs = true;
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
 #  boot.initrd.luks.devices = [
