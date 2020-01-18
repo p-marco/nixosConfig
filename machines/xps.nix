@@ -25,7 +25,7 @@
 
   
   boot ={
-    efi.canTouchEfiVariables = true;
+    loader.efi.canTouchEfiVariables = true;
     loader.systemd-boot.enable = true;
     supportedFilesystems = [ "ntfs" "fuse" ]; 
     tmpOnTmpfs = true;
