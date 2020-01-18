@@ -220,9 +220,22 @@
 
   environment.systemPackages = with pkgs; [
     gnome3.gnome-tweaks
+    gnome3.gnome-shell-extensions
     slack
     # tdesktop
     skypeforlinux
+
+
+    gnomeExtensions.arc-menu
+    gnomeExtensions.dash-to-panel
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.clipboard-indicator
+    gnomeExtensions.no-title-bar
+    gnomeExtensions.gsconnect
+
+
+
+
   ];
 
 }
