@@ -28,7 +28,7 @@
   
   # Boot.
   boot ={
-    earlyVconsoleSetup = true;
+    # earlyVconsoleSetup = true;
     loader.efi.canTouchEfiVariables = true;
     loader.systemd-boot.enable = true;
     # loader.systemd-boot.consoleMode = "0";
