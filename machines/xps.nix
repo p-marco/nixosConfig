@@ -28,8 +28,10 @@
   
   # Boot.
   boot ={
+    earlyVconsoleSetup = true;
     loader.efi.canTouchEfiVariables = true;
     loader.systemd-boot.enable = true;
+    loader.systemd-boot.consoleMode = "0";
     supportedFilesystems = [ "ntfs" "fuse" ]; 
     tmpOnTmpfs = true;
   };
@@ -99,7 +101,7 @@
   sound.enable = true;
   
   # Enable virtualbox.
-  virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.guest.enable = true;
   virtualisation.virtualbox.host.enableExtensionPack = true;
 
@@ -206,6 +208,9 @@
     uid = 1000;
     extraGroups = [ "wheel" "networkmanager" "plugdev" "dialout"];
     shell = pkgs.zsh;
+  };
+  fileSystems."/home/marco/Downloads" = { 
+    fsType = "tmpfs";
   };
 
   ##########################################
