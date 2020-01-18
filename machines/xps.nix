@@ -106,7 +106,7 @@
   virtualisation.virtualbox.host.enableExtensionPack = true;
 
   # Enable Docker.
-  virtualisation.docker.enable = true;
+  # virtualisation.docker.enable = true;
 
   # Networking.
   networking.wireless.enable = false;
