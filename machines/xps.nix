@@ -24,11 +24,17 @@
   # fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
   
+
+  
+  # Boot.
   boot ={
+    # earlyVconsoleSetup = true;
     loader.efi.canTouchEfiVariables = true;
     loader.systemd-boot.enable = true;
+    # loader.systemd-boot.consoleMode = "0";
     supportedFilesystems = [ "ntfs" "fuse" ]; 
     tmpOnTmpfs = true;
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
 #  boot.initrd.luks.devices = [
@@ -39,9 +45,6 @@
 #    }
 #  ];
     
-  
-  # Boot.
-
   boot.kernelModules = [ "kvm-intel" ];
   boot.kernelParams = [
     "pcie.aspm=force"
@@ -53,7 +56,7 @@
     "i915.enable_psr=0"
   ];
 
-
+  # Services.
   services = {
     fstrim = {
         enable = true;
@@ -99,50 +102,51 @@
   sound.enable = true;
   
   # Enable virtualbox.
-  virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.guest.enable = true;
+  # virtualisation.virtualbox.host.enableExtensionPack = true;
 
-  # Enable the Oracle Extension Pack.
-  nixpkgs.config.virtualbox.enableExtensionPack = true;
+  # Enable Docker.
+  # virtualisation.docker.enable = true;
 
-
-    networking.wireless.enable = false;
-    networking.hostName = "xps";
+  # Networking.
+  networking.wireless.enable = false;
+  networking.hostName = "xps";
 
      
     
 
-    # Internationalization.
-    i18n = {
-      consoleFont = "Source Code Pro";
-      consoleKeyMap = "it";
-      defaultLocale = "en_US.UTF-8";
+  # Internationalization.
+  i18n = {
+    consoleFont = "Source Code Pro";
+    consoleKeyMap = "it";
+    defaultLocale = "en_US.UTF-8";
+  };
+    
+
+
+  #System.
+  system = {
+    autoUpgrade = {
+      enable = true;
     };
+    stateVersion = "20.03";
+  }; 
     
-
-    # Services.
-
-    #System.
-    system = {
-      autoUpgrade = {
-        enable = true;
-      };
-      stateVersion = "20.03";
-    }; 
-    
-    # Timezone.
-    time.timeZone = "Europe/Prague";
+  # Timezone.
+  time.timeZone = "Europe/Prague";
 
 
-
+  ##########################################
+  ### HARDWARE STUFF
+  ##########################################
+  
 
   powerManagement.enable = true;
   powerManagement.cpuFreqGovernor = "ondemand"; # will be managed by tlp
-  #  powerManagement.cpuFreqGovernor = null; # will be managed by tlp
   powerManagement.powerUpCommands = ''
     echo XHC > /proc/acpi/wakeup
   '';
-
-
 
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.package = pkgs.pulseaudioFull;
@@ -163,13 +167,7 @@
   services.dbus.enable = true;
   services.acpid.enable = true;
   services.upower.enable = true;
-#  services.tlp.enable = true;
-  # services.gnome3.gnome-documents.enable = false;
-  # services.gnome3.gnome-online-accounts.enable = false;
-  # services.gnome3.gnome-online-miners.enable = false;
-  # services.gnome3.gnome-user-share.enable = false;
-  # services.gnome3.evolution-data-server.enable = lib.mkForce false;
-  # services.packagekit.enable = false;
+
 
 
   ##########################################
@@ -225,17 +223,10 @@
     # tdesktop
     skypeforlinux
 
-
     gnomeExtensions.arc-menu
     gnomeExtensions.dash-to-panel
     gnomeExtensions.dash-to-dock
-    #gnomeExtensions.clipboard-indicator
-    #gnomeExtensions.no-title-bar
     gnomeExtensions.gsconnect
-
-
-
-
   ];
 
 }

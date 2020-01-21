@@ -39,7 +39,7 @@
     pkgs.gimp
     pkgs.inkscape
     pkgs.pandoc
-    pkgs.adobe-reader
+    pkgs.skypeforlinux
   ];
   
 
