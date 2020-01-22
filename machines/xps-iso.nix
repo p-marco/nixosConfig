@@ -47,7 +47,7 @@
   
   # Boot.
 
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel"];
   boot.kernelParams = [
     "pcie.aspm=force"
     "i915.enable_fbc=1"
@@ -56,9 +56,10 @@
     "i915.enable_guc_loading=1"
     "i915.enable_guc_submission=1"
     "i915.enable_psr=0"
+    "mem_sleep_default=deep"
   ];
-
-
+#  boot.kernelPackages = pkgs.linuxPackages_latest;
+  
   services = {
     fstrim = {
         enable = true;
@@ -99,19 +100,21 @@
     };
   };
 
-    
+  users.users.root.password = "root";
+  users.users.marco.password = "marco"; 
+   
   # Enable sound :
   sound.enable = true;
   
   # Enable virtualbox.
-  virtualisation.virtualbox.host.enable = true;
+  #  virtualisation.virtualbox.host.enable = true;
 
   # Enable the Oracle Extension Pack.
-  nixpkgs.config.virtualbox.enableExtensionPack = true;
+  # nixpkgs.config.virtualbox.enableExtensionPack = true;
 
 
-    networking.wireless.enable = false;
-    networking.hostName = "xps";
+  networking.wireless.enable = false;
+  networking.hostName = "xps";
 
      
     
@@ -163,7 +166,7 @@
 
 
   programs.zsh.promptInit = "";
-  services.openssh.enable = false;
+  #  services.openssh.enable = false;
   services.printing.enable = true;
   services.dbus.enable = true;
   services.acpid.enable = true;
@@ -242,5 +245,8 @@
 
 
   ];
+
+services.thermald.enable = true;
+services.fwupd.enable = true;
 
 }
