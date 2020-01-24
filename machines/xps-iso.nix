@@ -7,6 +7,9 @@
     # Provide an initial copy of the NixOS channel so that the user
     # doesn't need to run "nix-channel --update" first.
     <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
+    
+     <nixos-hardware/dell/xps/13-9380>     
+
         # Include the results of the hardware scan :
       # ../hardware/xps.nix
       # Include bootloader :
@@ -47,18 +50,20 @@
   
   # Boot.
 
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.kernelParams = [
-    "pcie.aspm=force"
-    "i915.enable_fbc=1"
-    "i915.enable_rc6=7"
-    "i915.lvds_downclock=1"
-    "i915.enable_guc_loading=1"
-    "i915.enable_guc_submission=1"
-    "i915.enable_psr=0"
-  ];
+  #  boot.kernelModules = [ "kvm-intel" "ath10k_pci" "btusb" "intel_wmi_thunderbolt" "iwlwifi" ];
+  #  boot.kernelParams = [
+  #  "pcie.aspm=force"
+  #  "i915.enable_fbc=1"
+  #  "i915.enable_rc6=7"
+  #  "i915.lvds_downclock=1"
+  #  "i915.enable_guc_loading=1"
+  #  "i915.enable_guc_submission=1"
+  #  "i915.enable_psr=0"
+  #  "mem_sleep_default=deep"
+  # ];
 
-
+  boot.kernelPackages = pkgs.linuxPackages_5_4 ;
+  
   services = {
     fstrim = {
         enable = true;
@@ -69,20 +74,24 @@
         layout = "it,us,cz,sk";
       desktopManager = {
         gnome3 = {
-          enable = true;
+          # enable = true;
+          enable = false;
         };
       };
       displayManager = {
         gdm = {
-          enable = true;
+          # enable = true;
+          enable = false;
         };
+        lightdm.enable = true;
       };
       synaptics = {
         enable = false;
       };
       windowManager = {
         i3 = {
-          enable = false;
+          # enable = false;
+          enable = true;
           package = pkgs.i3-gaps;
         };
         openbox = {
@@ -99,31 +108,33 @@
     };
   };
 
-    
+  users.users.root.password = "root";
+  users.users.marco.password = "marco"; 
+   
   # Enable sound :
   sound.enable = true;
   
   # Enable virtualbox.
-  virtualisation.virtualbox.host.enable = true;
+  #  virtualisation.virtualbox.host.enable = true;
 
   # Enable the Oracle Extension Pack.
-  nixpkgs.config.virtualbox.enableExtensionPack = true;
+  # nixpkgs.config.virtualbox.enableExtensionPack = true;
 
 
-    networking.wireless.enable = false;
-    networking.hostName = "xps";
+  networking.wireless.enable = false;
+  networking.hostName = "xps";
 
      
     
 
     # Internationalization.
     i18n = {
-      consoleFont = "Source Code Pro";
+      consoleFont = "Terminus 16x32";
       consoleKeyMap = "it";
       defaultLocale = "en_US.UTF-8";
     };
     
-
+    console.font = "Terminus 16x32";
     # Services.
 
     #System.
@@ -163,7 +174,7 @@
 
 
   programs.zsh.promptInit = "";
-  services.openssh.enable = false;
+  #  services.openssh.enable = false;
   services.printing.enable = true;
   services.dbus.enable = true;
   services.acpid.enable = true;
@@ -242,5 +253,8 @@
 
 
   ];
+
+services.thermald.enable = true;
+services.fwupd.enable = true;
 
 }
