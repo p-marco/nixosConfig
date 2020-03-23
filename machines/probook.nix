@@ -32,6 +32,7 @@
   };
 
   services = {
+    printing.enable = true;
     xserver = {
       enable = true;
       xkbOptions = "eurosign:e";
