@@ -33,6 +33,7 @@
   };
 
   services = {
+    printing.enable = true;
     xserver = {
       desktopManager = {
         gnome3 = {
@@ -71,6 +72,6 @@
 
   # Enable the Oracle Extension Pack.
 
-  nixpkgs.config.firefox.enableAdobe = true;
+  # nixpkgs.config.firefox.enableAdobe = true;
 
 }
