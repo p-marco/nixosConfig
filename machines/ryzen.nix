@@ -34,6 +34,11 @@
 
   services = {
     printing.enable = true;
+    avahi.enable = true;
+    avahi.nssmdns = true;
+    avahi.publish.enable = true;
+    avahi.publish.userServices = true;
+    printing.browsing = true;
     xserver = {
       desktopManager = {
         gnome3 = {
